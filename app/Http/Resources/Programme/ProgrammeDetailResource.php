@@ -18,7 +18,7 @@ class ProgrammeDetailResource extends JsonResource
     {
         return [
                 'unique_identifier' => $this['id'],
-                'programme_name' => $this['programme']['programme_name'],
+                'programme_name' => $this['programme']['programme_name'] ?? null,
                 'programme_description' => $this['programme_description'],
                 'programme_thumbnail' => $this['programme_thumbnail'],
                 'start_time' => $this['programme']['start_time'],

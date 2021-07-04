@@ -32,8 +32,8 @@ class ProgrammeRepository implements ProgrammeRepositoryInterface
 
     public function getProgrammeInformation($data) {
         return $this->programme_details->where('programme_id', $data[1])
-                                    ->with(['programme' => function($programme){
-                                        $programme->where('channel_id', 1)->with('channel')->first();
+                                    ->with(['programme' => function($programme) use($data){
+                                        $programme->where('channel_id', $data[0])->with('channel')->first();
                                     }])
                                     ->get();
     }
